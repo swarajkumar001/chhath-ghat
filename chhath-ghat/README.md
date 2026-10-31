@@ -12,6 +12,12 @@ npm run dev          # http://localhost:5173
 
 `npm run build` writes a static site to `dist/`, ready for any static host (GitHub Pages, Netlify, Vercel…).
 
+**Live site:** https://swarajkumar001.github.io/chhath-ghat/ — after changing anything (for example your donation details), publish again with:
+
+```powershell
+npm run deploy
+```
+
 ## What's on the page
 
 | Part | How it works |
