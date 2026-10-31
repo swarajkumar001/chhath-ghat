@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Copy, QrCode, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { useScene } from '../context/SceneContext.jsx'
-import { DONATE, upiLink } from '../data/donate.js'
+import { DONATE, qrSrc, upiLink } from '../data/donate.js'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 /** UPI donation: QR code, UPI ID, and small one-tap amounts that open the visitor's UPI app. */
@@ -62,7 +62,7 @@ export default function DonateSheet() {
 
             <div className="mx-auto mt-5 grid h-52 w-52 place-items-center overflow-hidden rounded-2xl bg-white p-3">
               {DONATE.qr ? (
-                <img src={DONATE.qr} alt={`UPI QR — ${DONATE.upiId || t.donate.title}`} className="h-full w-full object-contain" />
+                <img src={qrSrc} alt={`UPI QR — ${DONATE.upiId || t.donate.title}`} className="h-full w-full object-contain" />
               ) : (
                 <div className="grid h-full w-full place-items-center rounded-xl border-2 border-dashed border-stone-300 p-4 text-stone-500">
                   <QrCode className="h-12 w-12" aria-hidden="true" />

@@ -15,6 +15,9 @@ export const DONATE = {
 
 export const donateReady = Boolean(DONATE.upiId || DONATE.qr)
 
+/** The QR image's URL, also when the site is served from a sub-folder (like GitHub Pages). */
+export const qrSrc = DONATE.qr.startsWith('/') ? import.meta.env.BASE_URL + DONATE.qr.slice(1) : DONATE.qr
+
 /** A UPI payment link; on phones it opens GPay / PhonePe / Paytm with the amount filled in. */
 export function upiLink(amount) {
   const params = new URLSearchParams({ pa: DONATE.upiId, pn: DONATE.payee || 'Chhath Ghat', cu: 'INR', tn: 'छठ घाट सहयोग' })
