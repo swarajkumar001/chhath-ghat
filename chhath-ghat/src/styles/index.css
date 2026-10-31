@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-[#12081a] font-sans text-amber-50 antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid #f5c04a;
+    outline-offset: 3px;
+  }
+}
+
+/* ---------- Painted ghat: everything that moves ---------- */
+.cloud-drift {
+  animation: cloudDrift 180s ease-in-out infinite alternate;
+}
+.sun-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: breathe 8s ease-in-out infinite;
+}
+.birds {
+  animation: birds 70s linear infinite;
+}
+.bird-wing {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flap 1s ease-in-out infinite;
+}
+.twinkle {
+  animation: twinkle 2.6s ease-in-out infinite;
+}
+.flag-wave {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: flag 2.4s ease-in-out infinite;
+}
+.ripple-drift {
+  animation: rippleDrift 14s ease-in-out infinite alternate;
+}
+.glint {
+  animation: glint 2.4s ease-in-out infinite;
+}
+.mist-drift {
+  animation: mistDrift 40s ease-in-out infinite alternate;
+}
+.figure-sway {
+  animation: sway 6s ease-in-out infinite;
+}
+.ring-out {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ringOut 4.2s ease-out infinite;
+}
+.ring-fast {
+  animation-duration: 1.4s;
+}
+.arghya-stream {
+  stroke-dasharray: 7 5;
+  animation: stream 0.55s linear infinite;
+}
+.flame {
+  transform-box: fill-box;
+  transform-origin: 50% 90%;
+  animation: flicker 1.7s ease-in-out infinite;
+}
+.glow-breathe {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: breathe 2.8s ease-in-out infinite;
+}
+.leaf-sway {
+  transform-box: view-box;
+  animation: leaf 7s ease-in-out infinite;
+}
+.smoke {
+  stroke-dasharray: 260;
+  animation: smoke 7s ease-in-out infinite;
+}
+.foam {
+  animation: foam 9s linear infinite;
+}
+.bob {
+  animation: bob 4s ease-in-out infinite;
+}
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+}
+.vignette {
+  background: radial-gradient(ellipse 95% 85% at 50% 42%, transparent 58%, rgba(10, 4, 8, 0.45) 100%);
+}
+
+/* ---------- UI ---------- */
+.hero-title {
+  color: #fff6e3;
+  text-shadow: 0 2px 24px rgba(60, 14, 30, 0.55), 0 1px 2px rgba(30, 8, 12, 0.6);
+}
+.hero-copy-shadow {
+  text-shadow: 0 1px 3px rgba(20, 6, 2, 0.6);
+}
+/* Quiet, mostly solid surfaces; a touch of blur only so photos don't fight the text */
+.glass,
+.control-surface {
+  background: rgba(22, 9, 5, 0.55);
+  border: 1px solid rgba(255, 232, 200, 0.16);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.player-card {
+  background: rgba(26, 11, 6, 0.88);
+  border: 1px solid rgba(255, 232, 200, 0.12);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.drawer-surface {
+  background: #1d0c06;
+  border: 1px solid rgba(255, 232, 200, 0.1);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+/* Three-bar level meter on the artwork while a song plays */
+.eq i {
+  display: block;
+  width: 3px;
+  border-radius: 1px;
+  background: #fff3d6;
+  animation: eq 0.9s ease-in-out infinite;
+}
+.eq i:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.eq i:nth-child(3) {
+  animation-delay: -0.6s;
+}
+.btn-primary {
+  color: #3b1404;
+  background: linear-gradient(180deg, #ffd27a, #f2a93b);
+  box-shadow: 0 6px 20px rgba(242, 140, 40, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(242, 140, 40, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #f5c04a var(--fill, 0%), rgba(255, 255, 255, 0.2) var(--fill, 0%));
+  cursor: pointer;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #fff1c4;
+  box-shadow: 0 0 8px rgba(245, 192, 74, 0.8);
+}
+.range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: 0;
+  border-radius: 9999px;
+  background: #fff1c4;
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 192, 74, 0.4) transparent;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes cloudDrift {
+  from { transform: translateX(-60px); }
+  to { transform: translateX(60px); }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: 0.85; }
+}
+@keyframes birds {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(1900px); }
+}
+@keyframes flap {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.35); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes flag {
+  0%, 100% { transform: skewY(0deg) scaleX(1); }
+  50% { transform: skewY(-8deg) scaleX(0.9); }
+}
+@keyframes rippleDrift {
+  from { transform: translateX(-24px); }
+  to { transform: translateX(24px); }
+}
+@keyframes glint {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 1; }
+}
+@keyframes mistDrift {
+  from { transform: translateX(-50px); }
+  to { transform: translateX(50px); }
+}
+@keyframes sway {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.5px); }
+}
+@keyframes ringOut {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+@keyframes stream {
+  to { stroke-dashoffset: -12; }
+}
+@keyframes flicker {
+  0%, 100% { transform: scale(1, 1); opacity: 1; }
+  25% { transform: scale(0.92, 1.1); opacity: 0.9; }
+  50% { transform: scale(1.05, 0.94); opacity: 1; }
+  75% { transform: scale(0.96, 1.06); opacity: 0.94; }
+}
+@keyframes leaf {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(1.6deg); }
+}
+@keyframes smoke {
+  0% { stroke-dashoffset: 260; opacity: 0; }
+  30% { opacity: 0.35; }
+  100% { stroke-dashoffset: -260; opacity: 0; }
+}
+@keyframes foam {
+  to { stroke-dashoffset: -140; }
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-2px) rotate(2deg); }
+}
+@keyframes eq {
+  0%, 100% { height: 30%; }
+  50% { height: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

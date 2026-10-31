@@ -1,0 +1,18 @@
+# Downloaded songs are copyrighted: never commit them
+Chhath_Puja_Songs/
+*.mp3
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Website
+chhath-ghat/node_modules/
+chhath-ghat/dist/
+*.local
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
